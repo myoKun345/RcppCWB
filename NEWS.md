@@ -1,3 +1,7 @@
+- #include <omp.h> added to cqp.cpp
+- line added to configure: 'echo "PKG_CXXFLAGS=-fopenmp" > ./src/Makevars'
+- "-fopenmp -lgomp" added to PKG_LIBS, see https://stackoverflow.com/questions/5008092/setting-up-configure-for-openmp-in-r
+
 # RcppCWB 0.2.8
 
 * There have been (minor) modifiations of the C code of the CWB so that compilation succeeds on Solaris.

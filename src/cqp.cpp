@@ -17,7 +17,8 @@ extern "C" {
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
-
+#include <omp.h>
+// [[Rcpp::plugins(openmp)]]
 
 using namespace Rcpp;
 
@@ -108,6 +109,8 @@ Rcpp::IntegerVector _cl_cpos2id(SEXP corpus, SEXP p_attribute, SEXP registry, Rc
   int i;
   int len = cpos.length();
   Rcpp::IntegerVector ids(len);
+  omp_set_num_threads(6);
+  #pragma omp parallel for
   for (i = 0; i < len; i++){
     ids(i) = cl_cpos2id(att, cpos(i));
   }
