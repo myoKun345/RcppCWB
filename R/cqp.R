@@ -138,7 +138,7 @@ cqp_list_corpora <- function() .cqp_list_corpora()
 cqp_query <- function(corpus, query, subcorpus = "QUERY"){
   stopifnot(corpus %in% cqp_list_corpora())
   query <- check_cqp_query(query)
-  cat("Query validated, running...")
+  cat("Query validated, running...\n")
   .cqp_query(corpus = corpus, subcorpus = subcorpus, query = query)
 }
 
